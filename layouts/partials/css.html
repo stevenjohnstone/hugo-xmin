@@ -1,0 +1,4 @@
+{{ $cssTemplate := resources.Get "css/style.css" }}
+{{ $style := $cssTemplate | resources.ExecuteAsTemplate "css/style.css" . }}
+<link rel="stylesheet" type="text/css" href="{{ $style.Permalink | relURL }}">
+<link rel="stylesheet" type="text/css" href="{{ "/css/fonts.css" | relURL }}">
