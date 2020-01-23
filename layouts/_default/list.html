@@ -6,6 +6,12 @@
 
 {{ .Content }}
 
+{{- if .Content }}
+{{- if .IsHome }}
+<hr/>
+{{ end -}}
+{{ end -}}
+
 <ul>
   {{ $pages := .Pages }}
   {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
