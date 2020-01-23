@@ -1,0 +1,11 @@
+{{ range (where .Site.Pages "Type" "post") }}
+    {{- with .Date -}}
+    <h2>
+    {{ . | dateFormat "Monday, Jan 2, 2006" "2015-01-21" }}
+    </h2>
+    {{ end -}}
+    <h1>
+        <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
+    </h1>
+    {{ .Content }}
+{{ end }}
