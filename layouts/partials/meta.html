@@ -1,0 +1,15 @@
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website" />
+    {{- $title := .Title | default .Site.Title -}}
+    {{- with $title }}
+    <meta property="og:title" content="{{ . }}" />
+    {{- end -}}
+    {{- $url := .Permalink | default .Site.BaseURL -}}
+    {{- with $url }}
+    <meta property="og:url" content="{{ . }}" />
+    {{ end -}}
+    {{- $metaImage := .Params.MetaImage | default .Site.Params.MetaImage -}}
+    {{- with $metaImage }}
+    <meta property="og:image" content="{{ printf "/images/%s" . | relURL }}" />
+    {{ end -}}
