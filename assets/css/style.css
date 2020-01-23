@@ -3,12 +3,34 @@
 {{- $hrColor := .Site.Params.Css.Hr.Color| default "#ddd" -}}
 {{- $codeBackgroundColor := .Site.Params.Css.Code.Background.Color| default "#f9f9f9" -}}
 {{- $blockquoteBackgroundColor := .Site.Params.Css.Blockquote.Background.Color| default "#f9f9f9" -}}
+{{- $bodyColor := .Site.Params.Css.Body.Color | default "black" -}}
+{{- $bodyBackgroundImage := .Site.Params.Css.Body.Background.Image -}}
+{{- $bodyBackgroundColor := .Site.Params.Css.Body.Background.Color -}}
+{{- $bodyBackgroundRepeat := .Site.Params.Css.Body.Background.Repeat -}}
+{{- $bodyBackgroundPosition := .Site.Params.Css.Body.Background.Position -}}
+{{- $bodyBackgroundSize := .Site.Params.Css.Body.Background.Size -}}
 
 body {
   max-width: 800px;
   margin: auto;
   padding: 1em;
   line-height: 1.5em;
+  color: {{ $bodyColor }};
+  {{ with $bodyBackgroundImage -}}
+  background-image: {{ . }};
+  {{- end -}}
+  {{- with $bodyBackgroundColor -}}
+  background-color: "{{ . }}";
+  {{- end -}}
+  {{- with $bodyBackgroundPosition -}}
+  background-position: {{ . }};
+  {{ end -}}
+  {{- with $bodyBackgroundRepeat }}
+  background-repeat: {{ . }};
+  {{- end -}}
+  {{- with $bodyBackgroundSize }}
+  background-size: {{ . }};
+  {{- end }}
 }
 
 /* header and footer areas */
