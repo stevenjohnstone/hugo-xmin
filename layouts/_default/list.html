@@ -12,18 +12,23 @@
 {{ end -}}
 {{ end -}}
 
-<ul>
+  <div class="grid-container">
   {{ $pages := .Pages }}
   {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
-  {{ range (where $pages "Section" "!=" "") }}
-  <li>
-    {{- with .Date -}}
-    <span class="date">{{ .Format "2006/01/02" }}</span>
-    {{ end -}}
-    <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
-  </li>
 
-  {{ end }}
-</ul>
+    {{ range (where $pages "Section" "!=" "") }}
+    <div class="grid-item">
+      {{ $title := .Title | markdownify }}
+      {{ $relpermalink := .RelPermalink }}
+      {{ with .Params.MetaImage }}
+      <a href="{{ $relpermalink }}" >{{ $title }}</a>
+      <img src="{{ . }}">
+      {{ else }}
+      <a href="{{ .RelPermalink }}" style="text-decoration: none"> {{$title}} </a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+
 
 {{ partial "footer.html" . }}

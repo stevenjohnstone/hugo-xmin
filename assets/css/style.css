@@ -33,6 +33,23 @@ body {
   {{- end }}
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.grid-item a {
+  position: absolute;
+  background-color: {{ $articleMetaBackgroundColor }};
+  color: {{ $bodyColor }};
+  display: grid;
+  text-decoration: none;
+}
+
+.grid-item img {
+  object-fit: cover;
+}
+
 /* header and footer areas */
 .menu { padding: 0; }
 .menu li { display: inline-block; }
