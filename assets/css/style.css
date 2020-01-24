@@ -46,6 +46,10 @@ body {
   text-decoration: none;
 }
 
+a {
+  color: inherit;
+}
+
 .grid-item img {
   object-fit: cover;
 }
@@ -59,6 +63,7 @@ body {
   padding: 5px;
   border-radius: 5px;
 }
+
 .menu, .article-meta, footer { text-align: center; }
 .title { font-size: 1.1em; }
 footer a { text-decoration: none; }
