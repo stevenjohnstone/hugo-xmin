@@ -20,12 +20,12 @@
     <div class="grid-item">
       {{ $title := .Title | markdownify }}
       {{ $relpermalink := .RelPermalink }}
+      <a href="{{ $relpermalink }}" > 
       {{ with .Params.MetaImage }}
-      <a href="{{ $relpermalink }}" >{{ $title }}</a>
       <img src="{{ . }}">
-      {{ else }}
-      <a href="{{ .RelPermalink }}" style="text-decoration: none"> {{$title}} </a>
       {{ end }}
+      <div class="grid-item-title"> {{ $title }} </div>
+      </a>
     </div>
     {{ end }}
   </div>
