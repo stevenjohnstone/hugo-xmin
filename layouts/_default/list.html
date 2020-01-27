@@ -12,23 +12,20 @@
 {{ end -}}
 {{ end -}}
 
-  <div class="grid-container">
   {{ $pages := .Pages }}
-  {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
+  {{ if .IsHome }}{{ $pages = .Site.RegularPages.ByDate }}{{ end }}
 
+    <ul>
     {{ range (where $pages "Section" "!=" "") }}
-    <div class="grid-item">
+    <li>
       {{ $title := .Title | markdownify }}
-      {{ $relpermalink := .RelPermalink }}
-      <a href="{{ $relpermalink }}" > 
-      {{ with .Params.MetaImage }}
-      <img src="{{ . }}">
-      {{ end }}
-      <div class="grid-item-title"> {{ $title }} </div>
+      <a class="contents" href="{{ .RelPermalink }}" > 
+       <time>{{ .Date.Format "2020/12/1" }}</time>
+       {{ $title }}
       </a>
-    </div>
+    </li>
     {{ end }}
-  </div>
+    </ul>
 
 
 {{ partial "footer.html" . }}
