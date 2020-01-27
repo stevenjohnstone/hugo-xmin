@@ -20,7 +20,7 @@
     <li>
       {{ $title := .Title | markdownify }}
       <a class="contents" href="{{ .RelPermalink }}" > 
-       <time>{{ .Date.Format "2020/12/1" }}</time>
+       <time>{{ .Date.Format "2006/01/02" }}</time>
        {{ $title }}
       </a>
     </li>
