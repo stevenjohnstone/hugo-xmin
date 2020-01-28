@@ -13,7 +13,7 @@
 {{ end -}}
 
   {{ $pages := .Pages }}
-  {{ if .IsHome }}{{ $pages = .Site.RegularPages.ByDate }}{{ end }}
+  {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
 
     <ul>
     {{ range (where $pages "Section" "!=" "") }}
