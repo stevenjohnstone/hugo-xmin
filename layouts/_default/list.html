@@ -17,7 +17,7 @@
 
     <ul>
     {{ range (where $pages "Section" "!=" "") }}
-    <li>
+    <li class="contents">
       {{ $title := .Title | markdownify }}
       <a class="contents" href="{{ .RelPermalink }}" > 
        <time>{{ .Date.Format "2006/01/02" }}</time>
